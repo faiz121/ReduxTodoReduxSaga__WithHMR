@@ -6,7 +6,7 @@ module.exports = {
       'webpack-dev-server/client?http://localhost:8080',
       'webpack/hot/only-dev-server',
       './src/client.js'],
-  devtool: 'eval',
+  devtool: "eval",
   output: {
     path: path.join(__dirname, '/public'),
     filename: 'bundle.js'
@@ -40,8 +40,6 @@ module.exports = {
   ],
   devServer: {
     hot:true,
-    inline: true,
-    port: 8080,
     proxy: {
       '*': 'http://127.0.0.1:' + (process.env.PORT || 3000)
     },

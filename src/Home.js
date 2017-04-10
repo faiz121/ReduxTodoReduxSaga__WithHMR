@@ -11,7 +11,7 @@ const Home = React.createClass({
     let input;
     return (
         <div className="text-center">
-          <input ref={(node) => input = node } type="text" name="todo" placeholder='create a todo ...'/>
+          <input ref={(node) => input = node } type="text" name="todo" placeholder='add a todo ...'/>
           <button className="btn btn-primary btn-sm" onClick={() => {
             this.addTodo(input.value);
             input.value = '';
