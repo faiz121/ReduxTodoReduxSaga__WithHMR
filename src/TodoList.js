@@ -1,7 +1,6 @@
 import React from 'react'
 
 const TodoList = React.createClass({
-
   render () {
     const { todo, remove, todoId } = this.props;
     return (

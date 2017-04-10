@@ -20,7 +20,7 @@ const removeTodo = (state, action) => {
 };
 
 function reducer(state = initialState, action) {
-  console.log('2. reducer called');
+  console.log(`${JSON.stringify(action)}`);
   switch (action.type) {
     case 'SET_SEARCH_TERM':
       return setSearchTerm(state, action);

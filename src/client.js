@@ -6,28 +6,30 @@ import axios from 'axios'
 import store from './store'
 import {Provider} from 'react-redux'
 import Todo from './Todo'
-import { addTodo } from './action'
+import { getTodosdb } from './action'
+import { BrowserRouter, Match } from 'react-router'
 
 const App = React.createClass({
-  getInitialState () {
-    return this.state = store.getState();
-  },
-
   componentDidMount () {
-    axios.get('http://localhost:3000/api/todos/')
-        .then((res) => {
-          store.dispatch(addTodo(res.data));
-        })
-        .catch((error) => console.error('axios error', error));
+    store.dispatch(getTodosdb())
   },
   render () {
     return (
         <Provider store={store}>
-          <div className="container">
-            <h1 className="text-center">To Do List</h1>
-            <Home/>
-            <Todo />
-          </div>
+            <BrowserRouter>
+                <div>
+                <Match exactly pattern='/' component={(props) => {
+                    return (<div className="container">
+                        <h1 className="text-center">To Do List</h1>
+                        <Home/>
+                        <Todo />
+                    </div>)
+                }} />
+                <Match pattern='/contact' component={(props) => {
+                 }
+                } />
+                </div>
+            </BrowserRouter>
         </Provider>
     )
   }
