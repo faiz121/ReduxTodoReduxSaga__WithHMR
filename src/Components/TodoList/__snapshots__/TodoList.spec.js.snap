@@ -1,0 +1,15 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`TodoList take a snapshot 1`] = `
+<Todo
+  deleteTodoDB={[Function]}
+  todos={
+    Array [
+      Object {
+        "_id": "1",
+        "task": "Do that",
+      },
+    ]
+  }
+/>
+`;

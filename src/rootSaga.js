@@ -1,6 +1,6 @@
 import { call, put, takeEvery } from 'redux-saga/effects' // these are saga effects we'll use
 import axios from 'axios';
-import { addTodo, removeTodo } from './action'
+import { addTodo, removeTodo } from './Action'
 
 export function* getTodos() {
   try {

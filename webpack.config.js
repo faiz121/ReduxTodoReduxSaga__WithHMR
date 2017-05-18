@@ -3,9 +3,7 @@ const webpack = require('webpack');
 
 module.exports = {
   entry: [
-      'webpack-dev-server/client?http://localhost:8080',
-      'webpack/hot/only-dev-server',
-      './src/client.js'],
+      './src/Components/App.js'],
   devtool: "eval",
   output: {
     path: path.join(__dirname, '/public'),
@@ -40,6 +38,7 @@ module.exports = {
   ],
   devServer: {
     hot:true,
+    port: 8080,
     proxy: {
       '*': 'http://127.0.0.1:' + (process.env.PORT || 3000)
     },

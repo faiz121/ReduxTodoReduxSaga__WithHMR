@@ -1,10 +1,9 @@
-var express = require('express');
+import express from 'express';
+import Todo from './TodoSchema';
+import morgan from 'morgan';
+import bodyParser from 'body-parser';
 
 const app = express();
-const Todo = require('./TodoSchema');
-const morgan = require('morgan');
-const bodyParser = require('body-parser');
-
 
 app.use(morgan('dev'));
 app.use(bodyParser.json());
@@ -33,19 +32,16 @@ app.post('/api/todos', (req, res, next) => {
 app.delete('/api/todos/:id', function(req, res, next) {
   Todo.findOne({_id: req.params.id}).exec(function (err, item) {
     if (err || !item) {
-      console.log('error finding record to delete', err);
       return next(new Error(err));
     }
     item.remove(function (err, success, next) {
       if (err) return next(err);
-      console.log('deleted successfully', item);
       res.send('deleted successfully');
     });
   });
 });
 
 app.use(function(err, req, res, next){
-  console.log('Something failed');
   res.status(500).send({"Error" : err.message})
 });
 

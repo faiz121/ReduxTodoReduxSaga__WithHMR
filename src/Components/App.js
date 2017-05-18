@@ -1,19 +1,18 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import Home from './Home'
-import '../public/style.css'
-import axios from 'axios'
-import store from './store'
+import Home from './AddTodo'
+import '../../public/style.css'
+import store from '../Store'
 import {Provider} from 'react-redux'
-import Todo from './Todo'
-import { getTodosdb } from './action'
+import Todo from './TodoList/TodoList'
+import { getTodosdb } from '../Action'
 import { BrowserRouter, Match } from 'react-router'
 
-const App = React.createClass({
+class App extends React.Component {
   componentDidMount () {
     store.dispatch(getTodosdb())
-  },
-  render () {
+  }
+  render() {
     return (
         <Provider store={store}>
             <BrowserRouter>
@@ -33,7 +32,7 @@ const App = React.createClass({
         </Provider>
     )
   }
-});
+};
 
 ReactDOM.render(<App />,
     document.getElementById('app')
